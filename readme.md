@@ -52,35 +52,56 @@ Output: -8.0
 
 ---
 
-## Sub-task 2 – Prodotto Matriciale
+## Sub-task 2 – Rango di una matrice
 
-Il prodotto matriciale di due matrici calcola una nuova matrice dove ogni elemento in posizione `(i, j)` è il prodotto scalare della i-esima riga della prima matrice per la j-esima colonna della seconda matrice.
+Il rango di una matrice è un numero intero che rappresenta il massimo numero di righe (o colonne) linearmente indipendenti. In altre parole, indica la “dimensione informativa” della matrice, cioè quante righe contengono informazione non ridondante rispetto alle altre.
+
+Il rango è una proprietà fondamentale dell’algebra lineare e viene utilizzato per determinare:
+
+* la invertibilità di una matrice quadrata;
+* la compatibilità di sistemi lineari;
+* la presenza di dipendenze lineari tra righe o colonne.
+
+---
 
 ### Requisito
 
 Implementa la funzione:
 
-```python
-prodotto_matriciale(m1: list, m2: list) -> np.ndarray
+```python id="rq1"
+rango_matrice(m: list) -> int
 ```
 
-Questa funzione riceve due liste di liste (rappresentanti matrici bidimensionali) e restituisce il prodotto matriciale come array NumPy.
+La funzione riceve in input una matrice rappresentata come lista di liste e restituisce un intero.
+
+Il risultato deve corrispondere al numero massimo di righe linearmente indipendenti presenti nella matrice.
+
+Il calcolo deve essere effettuato utilizzando operazioni di algebra lineare numerica basate su trasformazioni della matrice in una forma equivalente che consenta di individuare le dipendenze lineari tra le righe.
+
+---
 
 ### Esempi
 
-```python id="pm1"
-Input: m1 = [[1, 2], [3, 4]], m2 = [[5, 6], [7, 8]]
-Output: array([[19, 22], [43, 50]])
+```python id="rq2"
+Input: m = [[1, 2],
+            [3, 4]]
+
+Output: 2
 ```
 
-```python id="pm2"
-Input: m1 = [[1, 0], [0, 1]], m2 = [[2, 3], [4, 5]]
-Output: array([[2, 3], [4, 5]])
+```python id="rq3"
+Input: m = [[1, 2],
+            [2, 4]]
+
+Output: 1
 ```
 
-```python id="pm3"
-Input: m1 = [[2, 0], [1, 2]], m2 = [[1, -1], [0, 1]]
-Output: array([[2, -2], [1, 1]])
+```python id="rq4"
+Input: m = [[2, 4, 1],
+            [0, 0, 0],
+            [1, 2, 0]]
+
+Output: 2
 ```
 
 ---
